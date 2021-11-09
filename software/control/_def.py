@@ -194,7 +194,7 @@ class Tracking:
     INIT_METHODS = ["roi"]
     DEFAULT_INIT_METHOD = "roi"
 
-SHOW_DAC_CONTROL = False
+SHOW_DAC_CONTROL = True
 
 ##########################################################
 #### start of loading machine specific configurations ####
