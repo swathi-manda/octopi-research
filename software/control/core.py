@@ -1104,8 +1104,8 @@ class MultiPointWorker(QObject):
                         configuration_name_AF = MULTIPOINT_AUTOFOCUS_CHANNEL
                         config_AF = next((config for config in self.configurationManager.configurations if config.name == configuration_name_AF))
                         self.signal_current_configuration.emit(config_AF)
-                        #self.autofocusController.autofocus()
-                        #self.autofocusController.wait_till_autofocus_has_completed()
+                        self.autofocusController.autofocus()
+                        self.autofocusController.wait_till_autofocus_has_completed()
 
                     '''
                     # moved to before each z-stack on 12/29/2021
@@ -1127,17 +1127,16 @@ class MultiPointWorker(QObject):
                         # update the current configuration
                         self.signal_current_configuration.emit(config)
                         self.wait_till_operation_is_completed()
+                        self.autofocusController.autofocus()
+                        self.autofocusController.wait_till_autofocus_has_completed()
                         # trigger acquisition (including turning on the illumination)
                         if self.liveController.trigger_mode == TriggerMode.SOFTWARE:
                             self.liveController.turn_on_illumination()
                             self.wait_till_operation_is_completed()
-                            self.autofocusController.autofocus()
-                            self.autofocusController.wait_till_autofocus_has_completed()
                             self.camera.send_trigger()
                         elif self.liveController.trigger_mode == TriggerMode.HARDWARE:
                             self.microcontroller.send_hardware_trigger(control_illumination=True,illumination_on_time_us=self.camera.exposure_time*1000)
-                            self.autofocusController.autofocus()
-                            self.autofocusController.wait_till_autofocus_has_completed()
+                     
                         # read camera frame
                         image = self.camera.read_frame()
                         # tunr off the illumination if using software trigger
