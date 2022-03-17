@@ -88,12 +88,13 @@ class OctopiGUI(QMainWindow):
 			self.recordTabWidget.addTab(self.trackingControlWidget, "Tracking")
 		self.recordTabWidget.addTab(self.recordingControlWidget, "Simple Recording")
 		self.recordTabWidget.addTab(self.multiPointWidget, "Multipoint Acquisition")
+		self.recordTabWidget.addTab(self.navigationWidget, "Navigation")
 
 		# layout widgets
 		layout = QVBoxLayout() #layout = QStackedLayout()
 		layout.addWidget(self.cameraSettingWidget)
 		layout.addWidget(self.liveControlWidget)
-		layout.addWidget(self.navigationWidget)
+		#layout.addWidget(self.navigationWidget)
 		if SHOW_DAC_CONTROL:
 			layout.addWidget(self.dacControlWidget)
 		layout.addWidget(self.autofocusWidget)
