@@ -519,7 +519,8 @@ class NavigationController(QObject):
         self.y_microstepping = MICROSTEPPING_DEFAULT_Y
         self.z_microstepping = MICROSTEPPING_DEFAULT_Z
         self.theta_microstepping = MICROSTEPPING_DEFAULT_THETA
-        self.enable_joystick_button_action = True
+        # self.enable_joystick_button_action = True
+        self.enable_joystick_button_action = False
 
         # to be moved to gui for transparency
         self.microcontroller.set_callback(self.update_pos)
