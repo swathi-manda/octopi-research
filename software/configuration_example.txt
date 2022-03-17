@@ -91,7 +91,7 @@ LED_MATRIX_B_FACTOR = 1
 DEFAULT_SAVING_PATH = str(Path.home()) + "desktop/Microscope_Data"
 
 # multipoint acquisition settings
-MULTIPOINT_AUTOFOCUS_CHANNEL = 'BF LED matrix full'
+MULTIPOINT_AUTOFOCUS_CHANNEL = 'Fluorescence 488 nm Ex'
 # MULTIPOINT_AUTOFOCUS_CHANNEL = 'BF LED matrix left half'
 MULTIPOINT_AUTOFOCUS_ENABLE_BY_DEFAULT = True
 # MULTIPOINT_BF_SAVING_OPTION = 'Raw'
